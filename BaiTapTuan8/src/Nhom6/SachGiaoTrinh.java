@@ -1,0 +1,61 @@
+package Nhom6;
+
+public class SachGiaoTrinh extends Sach{
+	 private String monHoc;
+	    private String capDo;
+
+	    public SachGiaoTrinh(String maSach, String tieuDe, String tacGia, String namXuatBan1, double gia, int sl, String viTri1, String mon, String cap) 
+	    {
+	        super();
+	    }
+	 
+	    public SachGiaoTrinh(String maSach, String tieuDe, String tacGia, int namXuatBan, double giaCoBan, int soLuong, String viTri, String monHoc, String capDo) 
+	    {
+	        super(maSach, tieuDe, tacGia, namXuatBan, giaCoBan, soLuong, viTri);
+	        this.monHoc = monHoc;
+	        this.capDo = capDo;
+	    }
+	    
+	    public String getMonHoc() 
+	    {
+	        return monHoc;
+	    }
+
+	    public void setMonHoc(String monHoc) 
+	    {
+	        this.monHoc = monHoc;
+	    }
+
+	    public String getCapDo() 
+	    {
+	        return capDo;
+	    }
+
+	    public void setCapDo(String capDo) 
+	    {
+	        this.capDo = capDo;
+	    }
+
+	    @Override
+	    public double tinhGiaBan() 
+	    {
+	         return giaCoBan + (2025 - namXuatBan) * 5000;
+	    }
+
+	    @Override
+	    public String toString() 
+	    {
+	        return  "Sách Giáo Trình{" +
+	                "Mã sách='"+ getMaSach() + '\'' +
+	                ", Tiêu đề='" + getTieuDe() + '\'' +
+	                ", Tác giả='" + getTacGia() + '\'' +
+	                ", Năm xuất bản="+getNamXuatBan() + '\'' +
+	                ", Số lượng=" + getSoLuong() + '\'' +
+	                ", Vị trí= " + viTri + '\'' +
+	                ", Giá cơ bản= " + giaCoBan + '\'' +
+	                ", Môn học='" + monHoc+ '\'' +
+	                ", Cấp độ='" + capDo +'\'' +
+	                ", Thành tiền='" + tinhGiaBan() + '\'' +
+	                '}';
+	    }
+}
