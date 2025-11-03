@@ -1,18 +1,27 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
 package Nhom6;
 
-public abstract class Sach implements IGiaBan, IKiemKe {
+/**
+ *
+ * @author Tran
+ */
+public abstract class Sach implements IGiaBan, IKiemKe 
+{
     private String maSach;
     private String tieuDe;
     private String tacGia;
-    private int namXuatBan;
+    int namXuatBan;
     private int soLuong;
-    private double giaCoBan;
-    private String viTri;
+    double giaCoBan;
+    String viTri;
     
-    public Sach() {
-    }
+    public Sach() {}
     
-    public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, double giaCoBan, int soLuong, String viTri) {
+    public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, double giaCoBan, int soLuong, String viTri) 
+    {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
@@ -22,80 +31,98 @@ public abstract class Sach implements IGiaBan, IKiemKe {
         this.viTri = viTri;
     }
     
-    public String getMaSach() {
+    public String getMaSach() 
+    {
         return maSach;
     }
 
-    public void setMaSach(String maSach) {
+    public void setMaSach(String maSach) 
+    {
         this.maSach = maSach;
     }
 
-    public String getTieuDe() {
+    public String getTieuDe() 
+    {
         return tieuDe;
     }
 
-    public void setTieuDe(String tieuDe) {
+    public void setTieuDe(String tieuDe) 
+    {
         this.tieuDe = tieuDe;
     }
 
-    public String getTacGia() {
+    public String getTacGia() 
+    {
         return tacGia;
     }
 
-    public void setTacGia(String tacGia) {
+    public void setTacGia(String tacGia) 
+    {
         this.tacGia = tacGia;
     }
 
-    public int getNamXuatBan() {
+    public int getNamXuatBan() 
+    {
         return namXuatBan;
     }
 
-    public void setNamXuatBan(int namXuatBan) {
+    public void setNamXuatBan(int namXuatBan) 
+    {
         this.namXuatBan = namXuatBan;
     }
     
-    public double getGiaCoBan() {
+    public double getGiaCoBan() 
+    {
         return giaCoBan;
     }
 
-    public void setGiaCoBan(double giaCoBan) {
+    public void setGiaCoBan(double giaCoBan) 
+    {
         this.giaCoBan = giaCoBan;
     }
 
-    public int getSoLuong() {
+    public int getSoLuong() 
+    {
         return soLuong;
     }
 
-    public void setSoLuong(int soLuong) {
+    public void setSoLuong(int soLuong) 
+    {
         this.soLuong = soLuong;
     }
 
-    public String getViTri() {
+
+    public String getViTri() 
+    {
         return viTri;
     }
 
-    public void setViTri(String viTri) {
+    public void setViTri(String viTri) 
+    {
         this.viTri = viTri;
     }
     
-    public void hienThiThongTin() {
+    public void hienThiThongTin() 
+    {
         System.out.println("----- Thông tin sách -----");
         System.out.println("Mã sách       : " + maSach);
         System.out.println("Tiêu đề       : " + tieuDe);
         System.out.println("Tác giả       : " + tacGia);
         System.out.println("Năm xuất bản  : " + namXuatBan);
         System.out.println("Số lượng      : " + soLuong);
-        System.out.println("Giá cơ bản    : " + giaCoBan);
+        System.out.println("Giá cơ bản      : " + giaCoBan);
         System.out.println("--------------------------");
     }
     
     @Override
-    public boolean kiemTraTonKho(int soLuongToiThieu) {
+    public boolean kiemTraTonKho(int soLuongToiThieu) 
+    {
         return this.soLuong >= soLuongToiThieu;
     }
 
     @Override
-    public void capNhatViTri(String viTriMoi) {
+    public void capNhatViTri(String viTriMoi) 
+    {
         this.viTri = viTriMoi;
         System.out.println("Đã chuyển sách [" + this.tieuDe + "] đến khu vực: " + viTriMoi + ".");
     }
@@ -103,8 +130,10 @@ public abstract class Sach implements IGiaBan, IKiemKe {
     @Override
     public abstract double tinhGiaBan();
 
+
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return "Tiêu đề='" + tieuDe + "', Tác giả='" + tacGia + "', Giá cơ bản=" + giaCoBan + ", Số lượng=" + soLuong + ", Vị trí='" + viTri + "'";
     }
 }
