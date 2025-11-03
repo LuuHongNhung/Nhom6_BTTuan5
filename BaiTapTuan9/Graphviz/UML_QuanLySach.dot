@@ -1,0 +1,28 @@
+
+digraph UML_QuanLySach {
+  rankdir=TB;
+  fontsize=10;
+  node [fontname="Arial"];
+
+  IQuanLySach [shape=record, label="{«interface»\nIQuanLySach| |+themSach(s: Sach): void\l+timKiemSach(tieuDe: String): Sach\l+xoaSach(tieuDe: String): boolean\l+hienThiDanhSach(): void\l}"];
+  IGiaBan    [shape=record, label="{«interface»\nIGiaBan| |+getGia(): double\l}"];
+  IKiemKe    [shape=record, label="{«interface»\nIKiemKe| |+kiemTraTonKho(min: int): boolean\l+capNhatViTri(v: String): void\l}"];
+
+  Sach [shape=record, label="{«class»\nSach|- maSach: String\l- tieuDe: String\l- tacGia: String\l- namXuatBan: String\l- gia: double\l- soLuong: int\l- viTri: String\l|+ Sach(...)\l+ kiemTraTonKho(min: int): boolean\l+ capNhatViTri(v: String): void\l+ getGia(): double\l+ toString(): String\l}"];
+
+  SachGiaoTrinh [shape=record, label="{«class»\nSachGiaoTrinh|- monHoc: String\l- capDo: String\l|+ SachGiaoTrinh(...)\l+ toString(): String\l}"];
+  SachTieuThuyet [shape=record, label="{«class»\nSachTieuThuyet|- theLoai: String\l- series: String\l|+ SachTieuThuyet(...)\l+ toString(): String\l}"];
+
+  QuanLySachImpl [shape=record, label="{«class»\nQuanLySachImpl|- danhSach: List<Sach>\l|+ themSach(s: Sach): void\l+ timKiemSach(tieuDe: String): Sach\l+ xoaSach(tieuDe: String): boolean\l+ hienThiDanhSach(): void\l}"];
+
+  Test [shape=record, label="{«class»\nTest| |+ main(args: String[]): void\l}"];
+
+  QuanLySachImpl -> IQuanLySach [arrowhead=onormal, style=dashed, label="implements"];
+  Sach -> IGiaBan [arrowhead=onormal, style=dashed, label="implements"];
+  Sach -> IKiemKe [arrowhead=onormal, style=dashed, label="implements"];
+
+  SachGiaoTrinh -> Sach [arrowhead=onormal, label="extends"];
+  SachTieuThuyet -> Sach [arrowhead=onormal, label="extends"];
+
+  Test -> QuanLySachImpl [arrowhead=open, style=dotted, label="uses"];
+}
