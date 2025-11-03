@@ -12,98 +12,99 @@ public abstract class Sach implements IGiaBan, IKiemKe {
     public Sach() {
     }
     
-    public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan) {
+    public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, double giaCoBan, int soLuong, String viTri) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
         this.namXuatBan = namXuatBan;
+        this.giaCoBan = giaCoBan;
         this.soLuong = soLuong;
+        this.viTri = viTri;
+    }
+    
+    public String getMaSach() {
+        return maSach;
+    }
+
+    public void setMaSach(String maSach) {
+        this.maSach = maSach;
+    }
+
+    public String getTieuDe() {
+        return tieuDe;
+    }
+
+    public void setTieuDe(String tieuDe) {
+        this.tieuDe = tieuDe;
+    }
+
+    public String getTacGia() {
+        return tacGia;
+    }
+
+    public void setTacGia(String tacGia) {
+        this.tacGia = tacGia;
+    }
+
+    public int getNamXuatBan() {
+        return namXuatBan;
+    }
+
+    public void setNamXuatBan(int namXuatBan) {
+        this.namXuatBan = namXuatBan;
+    }
+    
+    public double getGiaCoBan() {
+        return giaCoBan;
+    }
+
+    public void setGiaCoBan(double giaCoBan) {
         this.giaCoBan = giaCoBan;
     }
-    
-    // Getter và Setter cho maSach
-    public String getMaSach() { 
-        return maSach; 
+
+    public int getSoLuong() {
+        return soLuong;
     }
-    public void setMaSach(String maSach) { 
-        this.maSach = maSach; 
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
-    
-    // Getter và Setter cho tieuDe
-    public String getTieuDe() { 
-        return tieuDe; 
+
+    public String getViTri() {
+        return viTri;
     }
-    public void setTieuDe(String tieuDe) { 
-        this.tieuDe = tieuDe; 
-    }
-    
-    // Getter và Setter cho tacGia
-    public String getTacGia() { 
-        return tacGia; 
-    }
-    public void setTacGia(String tacGia) { 
-        this.tacGia = tacGia; 
+
+    public void setViTri(String viTri) {
+        this.viTri = viTri;
     }
     
-    // Getter và Setter cho namXuatBan
-    public int getNamXuatBan() { 
-        return namXuatBan; 
-    }
-    public void setNamXuatBan(int namXuatBan) { 
-        this.namXuatBan = namXuatBan; 
-    }
-    
-    // Getter và Setter cho soLuong
-    public int getSoLuong() { 
-        return soLuong; 
-    }
-    public void setSoLuong(int soLuong) { 
-        this.soLuong = soLuong; 
+    public void hienThiThongTin() {
+        System.out.println("----- Thông tin sách -----");
+        System.out.println("Mã sách       : " + maSach);
+        System.out.println("Tiêu đề       : " + tieuDe);
+        System.out.println("Tác giả       : " + tacGia);
+        System.out.println("Năm xuất bản  : " + namXuatBan);
+        System.out.println("Số lượng      : " + soLuong);
+        System.out.println("Giá cơ bản    : " + giaCoBan);
+        System.out.println("--------------------------");
     }
     
-    // Getter và Setter cho giaCoBan
-    public double getGiaCoBan() { 
-        return giaCoBan; 
-    }
-    public void setGiaCoBan(double giaCoBan) { 
-        this.giaCoBan = giaCoBan; 
-    }
-    
-    // Getter và Setter cho viTri
-    public String getViTri() { 
-        return viTri; 
-    }
-    public void setViTri(String viTri) { 
-        this.viTri = viTri; 
-    }
-    
-    // Triển khai phương thức từ IKiemKe
     @Override
     public boolean kiemTraTonKho(int soLuongToiThieu) {
         return this.soLuong >= soLuongToiThieu;
     }
-    
-    // Triển khai phương thức từ IKiemKe
+
     @Override
     public void capNhatViTri(String viTriMoi) {
         this.viTri = viTriMoi;
-        System.out.println("Đã chuyển sách [" + this.tieuDe + "] đến khu vực: [" + viTriMoi + "].");
+        System.out.println("Đã chuyển sách [" + this.tieuDe + "] đến khu vực: " + viTriMoi + ".");
     }
     
-    // Phương thức abstract từ IGiaBan - để các lớp con triển khai
     @Override
     public abstract double tinhGiaBan();
-    
+
     @Override
     public String toString() {
-        return "Sach{" +
-                "maSach='" + maSach + '\'' +
-                ", tieuDe='" + tieuDe + '\'' +
-                ", tacGia='" + tacGia + '\'' +
-                ", namXuatBan=" + namXuatBan +
-                ", soLuong=" + soLuong +
-                ", giaCoBan=" + giaCoBan +
-                ", viTri='" + viTri + '\'' +
-                '}';
+        return "Tiêu đề='" + tieuDe + "', Tác giả='" + tacGia + "', Giá cơ bản=" + giaCoBan + ", Số lượng=" + soLuong + ", Vị trí='" + viTri + "'";
     }
 }
